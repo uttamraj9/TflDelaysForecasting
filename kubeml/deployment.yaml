@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: tflkubeml
+spec:
+  template:
+    spec:
+      containers:
+      - name: pysparkml
+        image: uttamraj9/tflkubeml:latest
+        volumeMounts:
+        - mountPath: /opt/spark-app/models  # Container path where the models will be mounted
+          name: models-volume              # Name of the volume to mount
+      restartPolicy: Never
+      volumes:
+      - name: models-volume
+        hostPath:
+          path: /home/ec2-user/big_datajan2025/dkube_pyspark/kubemlPr/models  # Path on the host machine
+          type: Directory               # Ensure this is a directory
+  backoffLimit: 4

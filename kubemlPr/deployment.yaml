@@ -1,13 +1,15 @@
 apiVersion: batch/v1
-kind: Job
+kind: CronJob
 metadata:
-  name: pysparkml-job
+  name: tflkubeml
 spec:
-  template:
+  schedule: "*/5 * * * *"  # This runs the job every 5 minutes
+  jobTemplate:
     spec:
-      containers:
-      - name: pysparkml
-        image: uttamraj9/testpysparkmlkube:pysparkml
-      restartPolicy: Never
+      template:
+        spec:
+          containers:
+          - name: pysparkmlpr
+            image: uttamraj9/tflkubemlpr:latest
+          restartPolicy: Never
   backoffLimit: 4
-

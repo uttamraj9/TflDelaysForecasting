@@ -14,6 +14,6 @@ WORKDIR /app
 
 # Copy the PySpark application code into the container
 COPY predict_model.py .
-COPY /var/lib/jenkins/workspace/TfLKubeMl/kubemlPr/tflforecast/ /tflforecast
+COPY tflforecast/ /tflforecast
 # Set the entrypoint
 CMD ["spark-submit", "--master", "local[*]", "predict_model.py"]

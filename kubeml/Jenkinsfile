@@ -35,7 +35,7 @@ pipeline {
                 script {
                     // Apply the Kubernetes deployment and service files
                     sh '''
-                    kubectl apply -f deployment.yaml
+                    kubectl apply -f kubeml/deployment.yaml
                     '''
                 }
             }

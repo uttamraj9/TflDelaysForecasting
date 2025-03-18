@@ -114,7 +114,7 @@ day_name_udf = udf(get_day_name, StringType())
 hive_df = hive_df.withColumn("day_name", day_name_udf(col("day_of_week")))
 
 # Load the saved model
-model_path = "/models/tflforecast"  # Ensure this is the correct path where the model was saved
+model_path = "/tflforecast"  # Ensure this is the correct path where the model was saved
 model = PipelineModel.load(model_path)
 #model = LogisticRegressionModel.load(model_path)
 

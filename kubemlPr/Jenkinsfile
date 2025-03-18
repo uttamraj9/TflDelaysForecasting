@@ -25,7 +25,6 @@ pipeline {
                 }
             }
         }
-        stages {
         stage('Force Git Pull') {
             steps {
                 script {

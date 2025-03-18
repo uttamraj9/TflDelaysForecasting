@@ -25,7 +25,15 @@ pipeline {
                 }
             }
         }
-       
+        stages {
+        stage('Force Git Pull') {
+            steps {
+                script {
+                    // Manually pull the latest changes from GitHub
+                    sh 'git pull origin main'  // Replace 'main' with the appropriate branch if needed
+                }
+            }
+        }
         stage('Build Docker Image') {
             steps {
                 script {

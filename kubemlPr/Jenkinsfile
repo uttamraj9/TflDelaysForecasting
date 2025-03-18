@@ -17,6 +17,14 @@ pipeline {
                 }
             }
         }
+        stage('Checkout Repository') {
+            steps {
+                script {
+                    // This pulls the latest changes from the GitHub repository
+                    checkout scm
+                }
+            }
+        }
        
         stage('Build Docker Image') {
             steps {

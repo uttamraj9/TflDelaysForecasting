@@ -14,7 +14,6 @@ spec:
       restartPolicy: Never
       volumes:
       - name: models-volume
-        hostPath:
-          path: /home/ec2-user/big_datajan2025/dkube_pyspark/kubemlPr/models  # Path on the host machine
-          type: Directory  # Ensure this is a directory
+        persistentVolumeClaim:
+          claimName: models-pvc            # Use the PVC we created
   backoffLimit: 4

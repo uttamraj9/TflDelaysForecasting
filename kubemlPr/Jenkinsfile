@@ -9,6 +9,14 @@ pipeline {
                 git url: 'https://github.com/uttamraj9/TflDelaysForecasting.git', branch: 'main'
             }
         }
+        stage('Prepare Files') {
+            steps {
+                script {
+                    // Copy necessary files to the Docker build context
+                    sh "cp -r /var/lib/jenkins/workspace/TfLKubeMl/kubemlPr/tflforecast ./tflforecast"
+                }
+            }
+        }
        
         stage('Build Docker Image') {
             steps {

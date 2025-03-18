@@ -6,8 +6,8 @@ spec:
   template:
     spec:
       containers:
-      - name: pyspark
-        image: uttamraj9/pysparkkube01:pysparkkube
+      - name: pysparkml
+        image: uttamraj9/tflkubeml:latest
         volumeMounts:
         - mountPath: /opt/spark-app/models  # Container path where the models will be mounted
           name: models-volume              # Name of the volume to mount

@@ -8,5 +8,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /home/ec2-user/big_datajan2025/dkube_pyspark/kubemlPr/models  # Path on the worker node
+    path: /var/lib/jenkins/workspace/TfLKubeMl/kubemlPr/models  # Path on the worker node
     type: Directory

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: models-pv
+spec:
+  capacity:
+    storage: 1Gi  # Adjust as needed
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /home/ec2-user/big_datajan2025/dkube_pyspark/kubemlPr/models  # Path on the worker node
+    type: Directory

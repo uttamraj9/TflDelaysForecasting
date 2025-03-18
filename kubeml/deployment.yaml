@@ -9,12 +9,12 @@ spec:
       - name: pysparkml
         image: uttamraj9/tflkubeml:latest
         volumeMounts:
-        - mountPath: /opt/spark-app/models  # Path inside the container where models will be mounted
-          name: models-volume               # Name of the volume
+        - mountPath: /opt/spark-app/models
+          name: models-volume
       restartPolicy: Never
       volumes:
       - name: models-volume
         hostPath:
-          path: /home/ec2-user/big_datajan2025/dkube_pyspark/kubemlPr/  # Path on the host machine
-          type: Directory  # Ensures it's a directory on the node
-backoffLimit: 4
+          path: /home/ec2-user/big_datajan2025/dkube_pyspark/kubemlPr/models
+          type: Directory
+  backoffLimit: 4  # This is valid in batch/v1

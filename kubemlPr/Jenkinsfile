@@ -13,26 +13,11 @@ pipeline {
             steps {
                 script {
                     // Copy necessary files to the Docker build context
-                    sh "cp -r /var/lib/jenkins/workspace/TfLKubeMl/kubemlPr/tflforecast ./tflforecast"
+                    sh "cp -r /var/lib/jenkins/workspace/TfLKubeMl/kubemlPr/tflforecast kubemlPr/tflforecast"
                 }
             }
         }
-        stage('Checkout Repository') {
-            steps {
-                script {
-                    // This pulls the latest changes from the GitHub repository
-                    checkout scm
-                }
-            }
-        }
-        stage('Force Git Pull') {
-            steps {
-                script {
-                    // Manually pull the latest changes from GitHub
-                    sh 'git pull origin main'  // Replace 'main' with the appropriate branch if needed
-                }
-            }
-        }
+
         stage('Build Docker Image') {
             steps {
                 script {

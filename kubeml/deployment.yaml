@@ -15,6 +15,6 @@ spec:
       volumes:
       - name: models-volume
         hostPath:
-          path: /home/ec2-user/big_datajan2025/dkube_pyspark/kubemlPr/models  # Path on the host machine
+          path: /var/lib/jenkins/workspace/TfLKubeMl/kubemlPr/models  # Path on the host machine
           type: Directory               # Specify the type as Directory to ensure it's a directory mount
   backoffLimit: 4

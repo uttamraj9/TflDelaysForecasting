@@ -6,10 +6,10 @@ spec:
   schedule: "*/5 * * * *"  # This runs the job every 5 minutes
   jobTemplate:
     spec:
+      backoffLimit: 4  # This belongs inside the jobTemplate.spec
       template:
         spec:
           containers:
           - name: pysparkmlpr
             image: uttamraj9/tflkubemlpr:latest
           restartPolicy: Never
-  backoffLimit: 4

@@ -35,8 +35,6 @@ pipeline {
                 script {
                     // Apply the Kubernetes deployment and service files
                     sh '''
-                    kubectl apply -f kubeml/models-pv.yaml
-                    kubectl apply -f kubeml/models-pvc.yaml
                     kubectl apply -f kubeml/deployment.yaml
                     '''
                 }

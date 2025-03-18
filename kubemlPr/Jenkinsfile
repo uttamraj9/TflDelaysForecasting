@@ -37,7 +37,14 @@ pipeline {
                 }
             }
         }
-
+        stage('Set Permissions') {
+            steps {
+                script {
+                    // Run the HDFS chmod command to set the permissions before applying the deployment
+                    sh 'sudo -u hdfs hdfs dfs -chmod -R 777 /warehouse/tablespace/external/hive/tfllive.db'
+                }
+            }
+        }
         stage('Deploy to Kubernetes') {
             steps {
                 script {
